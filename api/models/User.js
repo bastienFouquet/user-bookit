@@ -11,16 +11,8 @@ module.exports = {
     id: {type: 'string', unique: true, required: true},
     login: {type: 'string'},
     password: {type: 'string'},
-    roleId: {type: 'string', columnName: 'role_id'},
-    createdAt: {type: 'ref', columnType: 'datetime'},
-    updatedAt: {type: 'ref', columnType: 'datetime'}
+    role: {model: 'role', columnName: 'role_id'},
+    createdAt: {type: 'ref', columnType: 'datetime', autoCreatedAt: true},
+    updatedAt: {type: 'ref', columnType: 'datetime', autoUpdatedAt: true}
   },
-  beforeCreate: function (valuesToSet, proceed) {
-    valuesToSet.createdAt = new Date().toISOString();
-    proceed();
-  },
-  beforeUpdate: function (updatedRecord, proceed) {
-    updatedRecord.updatedAt = new Date().toISOString();
-    proceed();
-  }
 };
