@@ -32,7 +32,7 @@ USE `users`;
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
-                        `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                    `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
                         `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
                         `createdAt` datetime DEFAULT NULL,
                         `updatedAt` datetime DEFAULT NULL
@@ -54,7 +54,7 @@ INSERT INTO `roles` (`id`, `value`, `createdAt`, `updatedAt`) VALUES
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-                         `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                         `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
                          `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
                          `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
                          `role_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
