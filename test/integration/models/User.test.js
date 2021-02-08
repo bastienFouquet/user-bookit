@@ -1,9 +1,9 @@
 const assert = require('assert');
 
 describe('User#Model', () => {
-  describe( 'GET', () => {
+  describe('GET', () => {
     it('Should get Users and check attributes', async () => {
-      const users = await Users.find().limit(1);
+      const users = await User.find().limit(1);
       assert(users);
       const user = users[0];
       assert(user);
@@ -13,6 +13,6 @@ describe('User#Model', () => {
       assert(user.roleId !== null);
       assert(user.createdAt !== undefined);
       assert(user.updatedAt !== undefined);
-    } );
+    });
   });
 });

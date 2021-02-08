@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  primaryKey: 'id',
+  tableName: 'roles', primaryKey: 'id',
   attributes: {
     id: {type: 'string', unique: true, required: true},
     value: {type: 'string'},
