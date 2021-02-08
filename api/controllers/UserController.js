@@ -38,7 +38,11 @@ module.exports = {
       }
     } catch (e) {
       console.error(e);
-      return res.serverError(e);
+      if (e.raw) {
+        return res.serverError(e.raw);
+      } else {
+        return res.serverError(e);
+      }
     }
   }
 };

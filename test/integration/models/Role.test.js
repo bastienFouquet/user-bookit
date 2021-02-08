@@ -9,7 +9,7 @@ describe('Role#Model', () => {
         const role = roles[0];
         assert(role);
         assert(role.id !== null);
-        assert(role.value !== null);
+        assert(role.label !== null);
         assert(role.createdAt !== undefined);
         assert(role.updatedAt !== undefined);
       }

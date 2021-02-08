@@ -7,10 +7,13 @@
 -- Version du serveur :  8.0.22
 -- Version de PHP : 7.3.24-(to be removed in future macOS)
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
+SET
+SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET
+AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET
+time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,8 +24,10 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `users`
 --
-CREATE DATABASE IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `users`;
+CREATE
+DATABASE IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE
+`users`;
 
 -- --------------------------------------------------------
 
@@ -31,20 +36,21 @@ USE `users`;
 --
 
 DROP TABLE IF EXISTS `roles`;
-CREATE TABLE `roles` (
-                    `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
-                        `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                        `createdAt` datetime DEFAULT NULL,
-                        `updatedAt` datetime DEFAULT NULL
+CREATE TABLE `roles`
+(
+    `id`        varchar(255) COLLATE utf8mb4_unicode_ci PRIMARY KEY,
+    `label`     varchar(255) COLLATE utf8mb4_unicode_ci UNIQUE NOT NULL,
+    `createdAt` datetime DEFAULT NULL,
+    `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `role`
 --
 
-INSERT INTO `roles` (`id`, `value`, `createdAt`, `updatedAt`) VALUES
-('ec411cdc-7608-48e8-b094-d4bdc1d26172', 'User', '2021-02-08 09:37:57', '2021-02-08 09:37:57'),
-('d9369ffb-3c72-49cd-b10a-02ffb0a0ffec', 'Admin', '2021-02-08 09:37:57', '2021-02-08 09:37:57');
+INSERT INTO `roles` (`id`, `label`, `createdAt`, `updatedAt`)
+VALUES ('ec411cdc-7608-48e8-b094-d4bdc1d26172', 'User', '2021-02-08 09:37:57', '2021-02-08 09:37:57'),
+       ('d9369ffb-3c72-49cd-b10a-02ffb0a0ffec', 'Admin', '2021-02-08 09:37:57', '2021-02-08 09:37:57');
 
 -- --------------------------------------------------------
 
@@ -53,15 +59,20 @@ INSERT INTO `roles` (`id`, `value`, `createdAt`, `updatedAt`) VALUES
 --
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-                         `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
-                         `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                         `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                         `role_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-                         `createdAt` datetime DEFAULT NULL,
-                         `updatedAt` datetime DEFAULT NULL
+CREATE TABLE `users`
+(
+    `id`        varchar(255) COLLATE utf8mb4_unicode_ci PRIMARY KEY,
+    `login`     varchar(255) COLLATE utf8mb4_unicode_ci UNIQUE NOT NULL,
+    `password`  varchar(255) COLLATE utf8mb4_unicode_ci        NOT NULL,
+    `role_id`   varchar(255) COLLATE utf8mb4_unicode_ci        NOT NULL,
+    `createdAt` datetime DEFAULT NULL,
+    `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
+
+INSERT INTO `users` (`id`, `login`, `password`, `role_id`, `createdAt`, `updatedAt`)
+VALUES ('7526e300-03be-4f1d-85c3-67c05a398d1b', 'admin', '$2a$10$1jy7vgpDwyNxYw.wFdx.0urZVCmVykuTo4GlYwoTfkmMNUJvnJyD.',
+        'd9369ffb-3c72-49cd-b10a-02ffb0a0ffec', '2021-02-08 09:37:57', '2021-02-08 09:37:57')
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -30,4 +30,81 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
+  /**
+   * UserController
+   */
+  'POST /auth': {
+    controller: 'UserController',
+    action: 'auth',
+    swagger: {
+      summary: 'Authentication by return a JWT',
+      responses: {
+        '200': {
+          description: 'Succeed'
+        },
+        '500': {
+          description: 'Error'
+        }
+      },
+      parameters: [{
+        in: 'body',
+        name: 'body',
+        required: true,
+        schema: {
+          properties: {
+            login: {
+              type: 'string',
+              required: true
+            },
+            password: {
+              type: 'string',
+              required: true
+            }
+          }
+        }
+      }],
+      security: [{
+        'Authorization': []
+      }]
+    }
+  },
+  'POST /users': {
+    controller: 'UserController',
+    action: 'register',
+    swagger: {
+      summary: 'Register a user',
+      responses: {
+        '200': {
+          description: 'Succeed'
+        },
+        '500': {
+          description: 'Error'
+        }
+      },
+      parameters: [{
+        in: 'body',
+        name: 'body',
+        required: true,
+        schema: {
+          properties: {
+            login: {
+              type: 'string',
+              required: true
+            },
+            password: {
+              type: 'string',
+              required: true
+            },
+            confirmationPassword: {
+              type: 'string',
+              required: true
+            }
+          }
+        }
+      }],
+      security: [{
+        'Authorization': []
+      }]
+    }
+  },
 };

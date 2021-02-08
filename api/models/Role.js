@@ -9,9 +9,9 @@ module.exports = {
   tableName: 'roles', primaryKey: 'id',
   attributes: {
     id: {type: 'string', unique: true, required: true},
-    value: {type: 'string'},
-    createdAt: {type: 'ref', columnType: 'datetime'},
-    updatedAt: {type: 'ref', columnType: 'datetime'}
+    label: {type: 'string', unique: true},
+    createdAt: {type: 'ref', columnType: 'datetime', autoCreatedAt: true},
+    updatedAt: {type: 'ref', columnType: 'datetime', autoUpdatedAt: true}
   },
 
 };

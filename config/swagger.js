@@ -1,5 +1,7 @@
 module.exports.swaggerConfig = {
   disable: false,
+  //pathToGenerateFile: '/',
+  //fileName: 'swagger.json',
   defaults: {
     pathsToIgnore: ['api/v1/'],
     responses: {

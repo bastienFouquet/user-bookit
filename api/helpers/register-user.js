@@ -13,7 +13,7 @@ module.exports = {
   inputs: {
     login: {
       type: 'string',
-      allowNull: true
+      required: true
     },
     password: {
       type: 'string',
@@ -36,7 +36,7 @@ module.exports = {
     try {
       if (inputs.password === inputs.confirmationPassword) {
         if (passValidator.validate(inputs.password)) {
-          const userRole = (await Role.find({label: 'User'}))[0];
+          const userRole = await Role.findOne({label: 'User'});
           const user = await User.create({
             id: v4(),
             login: inputs.login,
@@ -50,10 +50,10 @@ module.exports = {
             return exits.error({register: false, message: 'Error'});
           }
         } else {
-          return exits.error({register: false, message: 'Error'});
+          return exits.error({register: false, message: 'Password must have 8 chars, lowercase, uppercase, 1 digits and contains no spaces'});
         }
       } else {
-        return exits.error({register: false, message: 'Error'});
+        return exits.error({register: false, message: 'Password and confirmation not match'});
       }
     } catch (e) {
       console.error(e);
