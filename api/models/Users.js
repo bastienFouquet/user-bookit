@@ -1,5 +1,5 @@
 /**
- * User.js
+ * Users.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -14,9 +14,5 @@ module.exports = {
     roleId: { type: 'string', columnName: 'role_id' },
     createdAt: { type: 'ref', columnType: 'datetime' },
     updatedAt: { type:'ref', columnType: 'datetime' }
-
-
   },
-
 };
-
