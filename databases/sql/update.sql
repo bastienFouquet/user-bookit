@@ -71,8 +71,7 @@ CREATE TABLE `users`
 COMMIT;
 
 INSERT INTO `users` (`id`, `login`, `password`, `role_id`, `createdAt`, `updatedAt`)
-VALUES ('7526e300-03be-4f1d-85c3-67c05a398d1b', 'admin', '$2a$10$1jy7vgpDwyNxYw.wFdx.0urZVCmVykuTo4GlYwoTfkmMNUJvnJyD.',
-        'd9369ffb-3c72-49cd-b10a-02ffb0a0ffec', '2021-02-08 09:37:57', '2021-02-08 09:37:57')
+VALUES ('7526e300-03be-4f1d-85c3-67c05a398d1b', 'admin', '$2a$10$1jy7vgpDwyNxYw.wFdx.0urZVCmVykuTo4GlYwoTfkmMNUJvnJyD.','d9369ffb-3c72-49cd-b10a-02ffb0a0ffec', '2021-02-08 09:37:57', '2021-02-08 09:37:57');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
