@@ -63,9 +63,7 @@ module.exports.routes = {
           }
         }
       }],
-      security: [{
-        'Authorization': []
-      }]
+      security: []
     }
   },
   'POST /users': {
@@ -102,9 +100,7 @@ module.exports.routes = {
           }
         }
       }],
-      security: [{
-        'Authorization': []
-      }]
+      security: []
     }
   },
 };

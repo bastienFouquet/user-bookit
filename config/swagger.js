@@ -15,9 +15,7 @@ module.exports.swaggerConfig = {
         description: 'Internal server error'
       }
     },
-    security: [{
-      'Authorization': []
-    }]
+    security: null
   },
   swagger: {
     swagger: '2.0',
@@ -38,19 +36,10 @@ module.exports.swaggerConfig = {
     },
     host: 'localhost:8081',
     basePath: '/',
-    schemes: [
-      'http',
-    ],
+    schemes: 'http',
     externalDocs: '',
     paths: {},
     definitions: {},
-    securityDefinitions: {
-      'Authorization': {
-        'type': 'apiKey',
-        'description': 'user JWT Auth Token',
-        'name': 'Authorization',
-        'in': 'header',
-      },
-    }
+    securityDefinitions: null
   }
 };
