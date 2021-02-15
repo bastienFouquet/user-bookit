@@ -20,7 +20,7 @@ module.exports.swaggerConfig = {
   swagger: {
     swagger: '2.0',
     info: {
-      title: 'User service a BookIt',
+      title: 'User service of BookIt',
       description: 'This is the doc of user service',
       termsOfService: '',
       contact: {
@@ -39,7 +39,11 @@ module.exports.swaggerConfig = {
     schemes: 'http',
     externalDocs: '',
     paths: {},
-    definitions: {},
+    definitions: {
+      schemes: {
+        archive: null
+      }
+    },
     securityDefinitions: null
   }
 };

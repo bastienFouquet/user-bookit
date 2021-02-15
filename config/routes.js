@@ -37,6 +37,7 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'auth',
     swagger: {
+      tags: ['Auth'],
       summary: 'Authentication by return a JWT',
       responses: {
         '200': {
@@ -70,6 +71,7 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'register',
     swagger: {
+      tags: ['Users'],
       summary: 'Register a user',
       responses: {
         '200': {
